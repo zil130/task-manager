@@ -4,6 +4,7 @@
       <input class="task-checkbox" type="checkbox" :id=task.id />
       <span>{{ task.task }}</span>
     </label>
+    <button-primary>DELETE</button-primary>
   </div>
 </template>
 
@@ -20,6 +21,8 @@ export default {
 
 <style scoped>
 .task {
+  display: flex;
+  justify-content: space-between;
   padding: 15px;
   display: flex;
   align-items: center;

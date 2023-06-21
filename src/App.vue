@@ -1,9 +1,9 @@
 <template>
   <div class="tasks">
-    <TaskForm
+    <task-form
       @create="createTask"
     />
-    <TaskList
+    <task-list
       :tasks="tasks"
     />
   </div>
