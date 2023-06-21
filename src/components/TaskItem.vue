@@ -4,7 +4,11 @@
       <input class="task-checkbox" type="checkbox" :id=task.id />
       <span>{{ task.task }}</span>
     </label>
-    <button-primary>DELETE</button-primary>
+    <button-primary
+      @click="$emit('remove', task)"
+    >
+      DELETE
+    </button-primary>
   </div>
 </template>
 

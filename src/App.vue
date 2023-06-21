@@ -4,18 +4,22 @@
       @create="createTask"
     />
     <task-list
+      v-if=tasks.length
       :tasks="tasks"
+      @remove="removeTask"
     />
+    <task-list-empty v-else />
   </div>
 </template>
 
 <script>
 import TaskForm from '@/components/TaskForm.vue';
 import TaskList from '@/components/TaskList.vue';
+import TaskListEmpty from '@/components/TaskListEmpty.vue';
 
 export default {
   components: {
-    TaskForm, TaskList,
+    TaskForm, TaskList, TaskListEmpty,
   },
   data() {
     return {
@@ -25,6 +29,9 @@ export default {
   methods: {
     createTask(task) {
       this.tasks.push(task);
+    },
+    removeTask(task) {
+      this.tasks = this.tasks.filter((t) => task.id !== t.id);
     },
   },
 };
@@ -53,6 +60,7 @@ export default {
 
 .tasks {
   width: 100%;
+  min-height: 400px;
   background: rgb(255, 255, 255);
 }
 </style>

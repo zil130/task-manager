@@ -3,6 +3,7 @@
     :task="task"
     v-for="task in tasks"
     :key="task.id"
+    @remove="$emit('remove', task)"
   />
 </template>
 
@@ -19,6 +20,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>
