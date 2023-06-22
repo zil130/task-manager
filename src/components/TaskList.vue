@@ -33,22 +33,22 @@ export default {
 </script>
 
 <style scoped>
-.task-list {
-  display: flex;
-  flex-direction: column;
-}
+  .task-list {
+    display: flex;
+    flex-direction: column;
+  }
 
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.8s ease;
-}
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(50px);
-}
+  .list-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 0.8s ease;
+  }
+  .list-enter-from,
+  .list-leave-to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
 </style>

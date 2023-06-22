@@ -48,22 +48,22 @@ export default {
 </script>
 
 <style scoped>
-.add-form {
-  width: 100%;
-}
+  .add-form {
+    width: 100%;
+  }
 
-.add-input {
-  padding: 25px 15px;
-  width: 100%;
-  font-size: 24px;
-  outline: none;
-  border-top: 2px solid lightgrey;
-  border-right: none;
-  border-left: none;
-  border-bottom: 2px solid lightgrey;
-}
+  .add-input {
+    width: 100%;
+    padding: 25px 15px;
+    font-size: 24px;
+    outline: none;
+    border-top: 2px solid lightgrey;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid lightgrey;
+  }
 
-.add-input::placeholder {
+  .add-input::placeholder {
     opacity: 0.3;
-}
+  }
 </style>

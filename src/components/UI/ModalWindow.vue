@@ -37,24 +37,24 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  background: rgba(0, 0, 0, 0.7);
-}
+  .container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
 
-.modal-window {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 320px;
-  min-height: 250px;
-  margin: auto;
-  border-radius: 10px;
-  background: white;
-}
+  .modal-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
+    min-height: 250px;
+    margin: auto;
+    border-radius: 10px;
+    background: white;
+  }
 </style>

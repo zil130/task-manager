@@ -10,20 +10,20 @@
 </template>
 
 <style scoped>
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  padding: 15px;
-  background: #f5f5f5;
-}
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 15px;
+    background: #f5f5f5;
+  }
 
-.title {
-  padding-bottom: 15px;
-  font-size: 40px;
-  font-weight: 100;
-  color: rgb(233, 217, 216);
-  text-align: center;
-}
+  .title {
+    padding-bottom: 15px;
+    font-size: 40px;
+    font-weight: 100;
+    color: rgb(233, 217, 216);
+    text-align: center;
+  }
 </style>

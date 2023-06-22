@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style scoped>
-.edit-input {
-  height: 30px;
-}
+  .edit-input {
+    height: 30px;
+  }
 </style>

@@ -11,12 +11,12 @@ export default {
 </script>
 
 <style scoped>
-.btn {
-  padding: 6px;
-  border: none;
-  background: transparent;
-  text-decoration: underline;
-  color: green;
-  cursor: pointer;
-}
+  .btn {
+    padding: 6px;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    color: green;
+    cursor: pointer;
+  }
 </style>

@@ -5,13 +5,13 @@
 </template>
 
 <style scoped>
-.list-empty {
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-}
+  .list-empty {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
 
-.text {
-  font-size: 24px;
-}
+  .text {
+    font-size: 24px;
+  }
 </style>

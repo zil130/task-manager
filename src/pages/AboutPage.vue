@@ -5,7 +5,7 @@
 </template>
 
 <style scoped>
-.about {
-  padding-top: 30px;
-}
+  .about {
+    padding-top: 30px;
+  }
 </style>
