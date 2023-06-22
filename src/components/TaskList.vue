@@ -5,6 +5,7 @@
         :task="task"
         v-for="task in tasks"
         :key="task.id"
+        @showModal="$emit('showModal', task)"
         @remove="$emit('remove', task)"
         @toggleStatus="$emit('toggleStatus', task)"
       />

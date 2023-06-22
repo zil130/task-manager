@@ -9,11 +9,19 @@
       />
       <span>{{ task.task }}</span>
     </label>
-    <button-primary
-      @click="$emit('remove', task)"
-    >
-      DELETE
-    </button-primary>
+    <div>
+      <button-primary
+        @click="$emit('showModal', task)"
+      >
+        EDIT
+      </button-primary>
+      <button-primary
+        class="remove-btn"
+        @click="$emit('remove', task)"
+      >
+        DELETE
+      </button-primary>
+    </div>
   </div>
 </template>
 
@@ -76,5 +84,9 @@ export default {
   border: 1px solid green;
   background-image: url('@/icons/check.svg');
   background-size: 80%;
+}
+
+.remove-btn {
+  margin-left: 10px;
 }
 </style>

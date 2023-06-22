@@ -1,5 +1,20 @@
 <template>
   <div class="tasks">
+    <modal-window v-model:show="modalVisible">
+      <label for="edit-input">
+        <input
+          v-model.trim="editedTask.task"
+          class="edit-input"
+          type="text"
+          id="edit-input"
+        >
+      </label>
+      <button-primary
+        @click="editTask"
+      >
+        SAVE
+      </button-primary>
+    </modal-window>
     <h1 class="title">Task Manager</h1>
     <task-form
       @create="createTask"
@@ -7,6 +22,7 @@
     <task-list
       v-if=tasks.length
       :tasks="tasks"
+      @showModal="showModal"
       @remove="removeTask"
       @toggleStatus="toggleStatus"
       @clearCompleted="clearCompleted"
@@ -27,6 +43,8 @@ export default {
   data() {
     return {
       tasks: [],
+      modalVisible: false,
+      editedTask: {},
     };
   },
   methods: {
@@ -47,6 +65,14 @@ export default {
     },
     clearCompleted() {
       this.tasks = this.tasks.filter((task) => !task.isCompleted);
+    },
+    showModal(task) {
+      this.modalVisible = true;
+      this.editedTask = task;
+    },
+    editTask() {
+      this.editedTask = {};
+      this.modalVisible = false;
     },
   },
 };
@@ -84,5 +110,9 @@ export default {
 .tasks {
   width: 100%;
   background: rgb(255, 255, 255);
+}
+
+.edit-input {
+  height: 30px;
 }
 </style>
