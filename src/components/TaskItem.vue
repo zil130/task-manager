@@ -1,6 +1,6 @@
 <template>
   <div class="task">
-    <label class="task-label" :for=task.id>
+    <label :for=task.id>
       <input class="task-checkbox" type="checkbox" :id=task.id />
       <span>{{ task.task }}</span>
     </label>

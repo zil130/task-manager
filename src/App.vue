@@ -1,5 +1,6 @@
 <template>
   <div class="tasks">
+    <h1 class="title">Task Manager</h1>
     <task-form
       @create="createTask"
     />
@@ -56,6 +57,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.title {
+  padding-bottom: 15px;
+  font-size: 70px;
+  font-weight: 100;
+  color: rgb(233, 217, 216);
+  text-align: center;
 }
 
 .tasks {

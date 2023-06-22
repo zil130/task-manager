@@ -1,8 +1,8 @@
-<template lang="">
+<template>
   <form @submit="createTask" class="add-form">
     <label for="add-input">
       <input
-        v-model="task.title"
+        v-model.trim="task.title"
         class="add-input"
         type="text"
         placeholder="What needs to be done?"
@@ -50,10 +50,9 @@ export default {
   width: 100%;
   font-size: 24px;
   outline: none;
-  border-top: none;
+  border-top: 2px solid lightgrey;
   border-right: none;
   border-left: none;
-  border-image: initial;
   border-bottom: 2px solid lightgrey;
 }
 </style>

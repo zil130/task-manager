@@ -1,6 +1,6 @@
 <template>
   <div class="list-empty">
-    <h3>The task list is empty</h3>
+    <p class="text">The task list is empty. Add your first task</p>
   </div>
 </template>
 
@@ -9,5 +9,9 @@
   display: flex;
   justify-content: center;
   padding-top: 100px;
+}
+
+.text {
+  font-size: 24px;
 }
 </style>
