@@ -2,6 +2,7 @@
   <form @submit="createTask" class="add-form">
     <label for="add-input">
       <input
+        ref="addInput"
         v-model.trim="task.title"
         class="add-input"
         type="text"
@@ -36,6 +37,12 @@ export default {
         };
       }
     },
+    focusInput() {
+      this.$refs.addInput.focus();
+    },
+  },
+  mounted() {
+    this.focusInput();
   },
 };
 </script>
@@ -54,5 +61,9 @@ export default {
   border-right: none;
   border-left: none;
   border-bottom: 2px solid lightgrey;
+}
+
+.add-input::placeholder {
+    opacity: 0.3;
 }
 </style>
