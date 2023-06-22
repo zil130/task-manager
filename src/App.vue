@@ -1,79 +1,16 @@
 <template>
-  <div class="tasks">
-    <modal-window v-model:show="modalVisible">
-      <label for="edit-input">
-        <input
-          v-model.trim="editedTask.task"
-          class="edit-input"
-          type="text"
-          id="edit-input"
-        >
-      </label>
-      <button-primary
-        @click="editTask"
-      >
-        SAVE
-      </button-primary>
-    </modal-window>
-    <h1 class="title">Task Manager</h1>
-    <task-form
-      @create="createTask"
-    />
-    <task-list
-      v-if=tasks.length
-      :tasks="tasks"
-      @showModal="showModal"
-      @remove="removeTask"
-      @toggleStatus="toggleStatus"
-      @clearCompleted="clearCompleted"
-    />
-    <task-list-empty v-else />
+  <div class="app">
+    <nav-bar></nav-bar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TaskForm from '@/components/TaskForm.vue';
-import TaskList from '@/components/TaskList.vue';
-import TaskListEmpty from '@/components/TaskListEmpty.vue';
+import NavBar from '@/components/NavBar.vue';
 
 export default {
   components: {
-    TaskForm, TaskList, TaskListEmpty,
-  },
-  data() {
-    return {
-      tasks: [],
-      modalVisible: false,
-      editedTask: {},
-    };
-  },
-  methods: {
-    createTask(task) {
-      this.tasks.push(task);
-    },
-    removeTask({ id }) {
-      this.tasks = this.tasks.filter((task) => task.id !== id);
-    },
-    toggleStatus({ id }) {
-      this.tasks = this.tasks.map((task) => {
-        if (task.id === id) {
-          return { ...task, isCompleted: !task.isCompleted };
-        }
-
-        return task;
-      });
-    },
-    clearCompleted() {
-      this.tasks = this.tasks.filter((task) => !task.isCompleted);
-    },
-    showModal(task) {
-      this.modalVisible = true;
-      this.editedTask = task;
-    },
-    editTask() {
-      this.editedTask = {};
-      this.modalVisible = false;
-    },
+    NavBar,
   },
 };
 </script>
@@ -99,20 +36,9 @@ export default {
   color: #2c3e50;
 }
 
-.title {
-  padding-bottom: 15px;
-  font-size: 70px;
-  font-weight: 100;
-  color: rgb(233, 217, 216);
-  text-align: center;
-}
-
-.tasks {
+.app {
   width: 100%;
-  background: rgb(255, 255, 255);
-}
-
-.edit-input {
-  height: 30px;
+  min-height: 100vh;
+  background: #ffffff;
 }
 </style>

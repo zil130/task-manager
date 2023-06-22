@@ -1,6 +1,6 @@
 <template>
   <div class="task">
-    <label :for=task.id>
+    <label class="cb-label" :for=task.id>
       <input
         @click="$emit('toggleStatus', task)"
         class="task-checkbox"
@@ -47,6 +47,10 @@ export default {
   min-height: 50px;
   border-bottom: 1px solid lightgrey;
   font-size: 24px;
+}
+
+.cb-label {
+  cursor: pointer;
 }
 
 .task-checkbox {

@@ -36,7 +36,6 @@ export default {
 .task-list {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
 }
 
 .list-item {
