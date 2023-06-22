@@ -1,19 +1,27 @@
 <template>
-  <transition-group name="list">
-    <task-item
-      :task="task"
-      v-for="task in tasks"
-      :key="task.id"
-      @remove="$emit('remove', task)"
+  <div class="task-list">
+    <transition-group name="list">
+      <task-item
+        :task="task"
+        v-for="task in tasks"
+        :key="task.id"
+        @remove="$emit('remove', task)"
+        @toggleStatus="$emit('toggleStatus', task)"
+      />
+    </transition-group>
+    <task-control
+      @clearCompleted="$emit('clearCompleted')"
+      :tasks="tasks"
     />
-  </transition-group>
+  </div>
 </template>
 
 <script>
 import TaskItem from '@/components/TaskItem.vue';
+import TaskControl from '@/components/TaskControl.vue';
 
 export default {
-  components: { TaskItem },
+  components: { TaskItem, TaskControl },
   props: {
     tasks: {
       type: Array,
@@ -24,6 +32,12 @@ export default {
 </script>
 
 <style scoped>
+.task-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
 .list-item {
   display: inline-block;
   margin-right: 10px;

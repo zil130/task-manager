@@ -8,6 +8,8 @@
       v-if=tasks.length
       :tasks="tasks"
       @remove="removeTask"
+      @toggleStatus="toggleStatus"
+      @clearCompleted="clearCompleted"
     />
     <task-list-empty v-else />
   </div>
@@ -31,8 +33,20 @@ export default {
     createTask(task) {
       this.tasks.push(task);
     },
-    removeTask(task) {
-      this.tasks = this.tasks.filter((t) => task.id !== t.id);
+    removeTask({ id }) {
+      this.tasks = this.tasks.filter((task) => task.id !== id);
+    },
+    toggleStatus({ id }) {
+      this.tasks = this.tasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, isCompleted: !task.isCompleted };
+        }
+
+        return task;
+      });
+    },
+    clearCompleted() {
+      this.tasks = this.tasks.filter((task) => !task.isCompleted);
     },
   },
 };
@@ -69,7 +83,6 @@ export default {
 
 .tasks {
   width: 100%;
-  min-height: 400px;
   background: rgb(255, 255, 255);
 }
 </style>

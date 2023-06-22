@@ -6,6 +6,7 @@
 
 <style scoped>
 .list-empty {
+  min-height: 300px;
   display: flex;
   justify-content: center;
   padding-top: 100px;

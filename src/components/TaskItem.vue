@@ -1,7 +1,12 @@
 <template>
   <div class="task">
     <label :for=task.id>
-      <input class="task-checkbox" type="checkbox" :id=task.id />
+      <input
+        @click="$emit('toggleStatus', task)"
+        class="task-checkbox"
+        type="checkbox"
+        :id=task.id
+      />
       <span>{{ task.task }}</span>
     </label>
     <button-primary
@@ -27,6 +32,7 @@ export default {
 .task {
   display: flex;
   justify-content: space-between;
+  flex: 1 1 auto;
   padding: 15px;
   display: flex;
   align-items: center;
