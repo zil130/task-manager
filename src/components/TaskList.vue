@@ -5,29 +5,23 @@
         :task="task"
         v-for="task in tasks"
         :key="task.id"
-        @showModal="$emit('showModal', task)"
-        @remove="$emit('remove', task)"
-        @toggleStatus="$emit('toggleStatus', task)"
       />
     </transition-group>
-    <task-control
-      @clearCompleted="$emit('clearCompleted')"
-      :tasks="tasks"
-    />
+    <task-control />
   </div>
 </template>
 
 <script>
 import TaskItem from '@/components/TaskItem.vue';
 import TaskControl from '@/components/TaskControl.vue';
+import { mapState } from 'vuex';
 
 export default {
   components: { TaskItem, TaskControl },
-  props: {
-    tasks: {
-      type: Array,
-      required: true,
-    },
+  computed: {
+    ...mapState({
+      tasks: (state) => state.tasks,
+    }),
   },
 };
 </script>

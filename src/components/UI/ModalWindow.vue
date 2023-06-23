@@ -1,8 +1,8 @@
 <template>
   <div
     class="container"
-    v-if="show"
-    @click="hide"
+    v-if="modalVisible"
+    @click="hideModal"
     @keydown="handleKeyDown"
   >
     <div
@@ -15,23 +15,24 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'modal-window',
-  props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-  },
   methods: {
-    hide() {
-      this.$emit('update:show', false);
-    },
+    ...mapMutations({
+      hideModal: 'hideModal',
+    }),
     handleKeyDown(e) {
       if (e.keyCode === 27) {
-        this.hide();
+        this.hideModal();
       }
     },
+  },
+  computed: {
+    ...mapState({
+      modalVisible: (state) => state.modalVisible,
+    }),
   },
 };
 </script>

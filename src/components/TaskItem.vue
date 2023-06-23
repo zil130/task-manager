@@ -2,7 +2,7 @@
   <div class="task">
     <label class="cb-label" :for=task.id>
       <input
-        @click="$emit('toggleStatus', task)"
+        @click="() => toggleStatus(task.id)"
         class="task-checkbox"
         type="checkbox"
         :id=task.id
@@ -11,13 +11,13 @@
     </label>
     <div>
       <button-primary
-        @click="$emit('showModal', task)"
+        @click="() => showModal(task)"
       >
         EDIT
       </button-primary>
       <button-primary
         class="remove-btn"
-        @click="$emit('remove', task)"
+        @click="() => removeTask(task)"
       >
         DELETE
       </button-primary>
@@ -26,12 +26,21 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   props: {
     task: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    ...mapMutations({
+      removeTask: 'removeTask',
+      toggleStatus: 'toggleStatus',
+      showModal: 'showModal',
+    }),
   },
 };
 </script>

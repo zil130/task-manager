@@ -1,8 +1,8 @@
 <template>
   <div class="task-control">
-    <div>{{ activeTasks }} items left</div>
+    <div>{{ activeTasksCount }} items left</div>
     <button-secondary
-      @click="$emit('clearCompleted')"
+      @click="removeAllCompleted"
     >
       Clear completed
     </button-secondary>
@@ -10,18 +10,18 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex';
+
 export default {
-  props: {
-    tasks: {
-      type: Array,
-      required: true,
-    },
+  methods: {
+    ...mapMutations({
+      removeAllCompleted: 'removeAllCompleted',
+    }),
   },
   computed: {
-    activeTasks() {
-      const result = this.tasks.filter((task) => !task.isCompleted);
-      return result.length;
-    },
+    ...mapGetters([
+      'activeTasksCount',
+    ]),
   },
 };
 </script>

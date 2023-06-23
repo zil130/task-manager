@@ -1,9 +1,9 @@
 <template>
-  <form @submit="createTask" class="add-form">
+  <form @submit.prevent="createTask" class="add-form">
     <label for="add-input">
       <input
         ref="addInput"
-        v-model.trim="task.title"
+        v-model="newTask"
         class="add-input"
         type="text"
         placeholder="What needs to be done?"
@@ -14,35 +14,29 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
-  data() {
-    return {
-      task: {
-        title: '',
-      },
-    };
-  },
   methods: {
-    createTask(event) {
-      event.preventDefault();
-      if (this.task.title) {
-        const newTask = {
-          id: Date.now(),
-          task: this.task.title,
-          isCompleted: false,
-        };
-        this.$emit('create', newTask);
-        this.task = {
-          title: '',
-        };
-      }
-    },
+    ...mapActions({
+      createTask: 'createTask',
+    }),
     focusInput() {
       this.$refs.addInput.focus();
     },
   },
   mounted() {
     this.focusInput();
+  },
+  computed: {
+    newTask: {
+      get() {
+        return this.$store.state.newTask;
+      },
+      set(value) {
+        this.$store.commit('updateNewTask', value);
+      },
+    },
   },
 };
 </script>
