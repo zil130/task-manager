@@ -1,24 +1,7 @@
-# task-manager
+# Task manager App
 
-## Project setup
-```
-npm install
-```
+Vue.js, Vuex and Vue Router.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Deploy
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://task-manager-zil130.vercel.app
