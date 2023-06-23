@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 
-export default createStore({
+const store = createStore({
   state: () => ({
     tasks: [],
     newTask: '',
@@ -74,3 +74,15 @@ export default createStore({
     },
   },
 });
+
+const savedState = localStorage.getItem('state');
+
+if (savedState) {
+  store.replaceState(JSON.parse(savedState));
+}
+
+store.subscribe((_mutation, state) => {
+  localStorage.setItem('state', JSON.stringify(state));
+});
+
+export default store;

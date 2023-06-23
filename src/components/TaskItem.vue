@@ -6,6 +6,7 @@
         class="task-checkbox"
         type="checkbox"
         :id=task.id
+        :checked="isCompleted"
       />
       <span>{{ task.task }}</span>
     </label>
@@ -41,6 +42,11 @@ export default {
       toggleStatus: 'toggleStatus',
       showModal: 'showModal',
     }),
+  },
+  computed: {
+    isCompleted() {
+      return this.task.isCompleted;
+    },
   },
 };
 </script>
