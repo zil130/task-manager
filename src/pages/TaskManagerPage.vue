@@ -67,9 +67,20 @@ export default {
     },
     showModal(task) {
       this.modalVisible = true;
-      this.editedTask = task;
+      this.editedTask = {
+        id: task.id,
+        task: task.task,
+        isCompleted: task.isCompleted,
+      };
     },
     editTask() {
+      this.tasks = this.tasks.map((task) => {
+        if (task.id === this.editedTask.id) {
+          return { ...this.editedTask };
+        }
+
+        return task;
+      });
       this.editedTask = {};
       this.modalVisible = false;
     },
